@@ -1,4 +1,8 @@
-# REMDoC-Reference-free Evaluation for Medical Document Summaries via Contrastive Learning
+# REMDoC
+
+This is the official repository of REMDoC: Reference-free Evaluation for Medical Document Summaries via Contrastive Learning, 
+presented in ACL 2024 KnowledgeNLP and HuCLLM.
+
 
 Despite the advancement of automatic summarization methods based on pre-
 trained language models, evaluating their effectiveness remains a challenge, particularly
