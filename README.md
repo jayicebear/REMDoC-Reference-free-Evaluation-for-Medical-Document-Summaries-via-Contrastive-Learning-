@@ -1,7 +1,7 @@
 # REMDoC
 
 This is the official repository of REMDoC: Reference-free Evaluation for Medical Document Summaries via Contrastive Learning, 
-presented in ACL 2024 KnowledgeNLP and HuCLLM.
+presented in ACL 2024 [KnowledgeNLP](https://knowledge-nlp.github.io/acl2024/) and [HuCLLM](https://hucllm-workshop.github.io/).
 
 
 Despite the advancement of automatic summarization methods based on pre-
