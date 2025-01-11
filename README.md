@@ -1,6 +1,6 @@
 ## REMDoC
 
-# **IEEE access accepted** <br/> 
+ **IEEE access accepted** <br/> 
 [paper_link](https://ieeexplore.ieee.org/document/10804787/authors#authors) <br/> 
 This is the official repository of REMDoC: Reference-free Evaluation for Medical Document Summaries via Contrastive Learning.
 
