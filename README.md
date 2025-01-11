@@ -1,4 +1,4 @@
-## REMDoC
+## REMDoC-Reference-free-Evaluation-for-Medical-Document-Summaries-via-Contrastive-Learning
 
  **IEEE access accepted** <br/> 
 [paper_link](https://ieeexplore.ieee.org/document/10804787/authors#authors) <br/> 
