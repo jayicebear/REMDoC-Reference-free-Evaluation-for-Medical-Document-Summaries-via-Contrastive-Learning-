@@ -42,14 +42,16 @@ class DualEncoder(nn.Module):
         sum_vec = self.pooling(self.sum_encoder(**sum_input))
         return doc_vec, sum_vec
 
-def info_nce_loss(doc_vec, pos_vec, neg_vecs, temperature=0.05):
-    # concat all summaries (positive + negatives)
-    all_sum_vecs = torch.cat([pos_vec] + neg_vecs, dim=0)  # shape: (1 + N, dim)
-    logits = F.cosine_similarity(doc_vec, all_sum_vecs) / temperature
-    labels = torch.tensor([0]).to(doc_vec.device)  # Positive is always at index 0
-    logits = logits.unsqueeze(0)  # (1, 1+N)
-    return F.cross_entropy(logits, labels)
-from tqdm import tqdm
+def multi_positive_info_nce_loss(doc_vec, pos_vecs, neg_vecs, temperature=0.05):
+    losses = []
+    for pos_vec in pos_vecs:
+        all_vecs = torch.cat([pos_vec] + neg_vecs, dim=0)  # (1 + N, dim)
+        logits = F.cosine_similarity(doc_vec, all_vecs) / temperature
+        logits = logits.unsqueeze(0)  # (1, N+1)
+        labels = torch.tensor([0]).to(doc_vec.device)
+        loss = F.cross_entropy(logits, labels)
+        losses.append(loss)
+    return torch.stack(losses).mean()
 
 model = DualEncoder().to("cuda")
 optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
